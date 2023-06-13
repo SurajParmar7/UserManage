@@ -1,6 +1,4 @@
-﻿
-
-using UserManage.repository.Interface;
+﻿using UserManage.repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using UserManage.entities.Data;
 using UserManage.entities.Viewmodels;
-using UserManage.repository.Interface;
 using UserManage.entities.Models;
 using Microsoft.Data.SqlClient;
 using System.Data;
@@ -23,92 +20,63 @@ namespace UserManage.repository.Repository
 
         public UserRepository(DemotaskContext demotaskContext) { _demotaskContext = demotaskContext; }
 
-        public Userview ListUser(string search, int pageNumber, int pageSize)
-        {
-            Userview userview = new Userview();
-            try
-            {
-                if (pageNumber == 0)
-                {
-                    pageNumber = 1;
-                }
-                if (pageSize == 0)
-                {
-                    pageSize = 2;
-                }
-                //int pageSize = 3;
-                List<User> user;
-
-                if (!string.IsNullOrEmpty(search))
-                {
-                    user = _demotaskContext.Users.Where(x => x.FirstName.ToLower().Contains(search.ToLower()) ||
-                        x.LastName.ToLower().Contains(search.ToLower()) || x.Email.ToLower().Contains(search.ToLower()) && x.DeletedAt == null).ToList();
-                }
-                else
-                {
-                    user = _demotaskContext.Users.Where(x => x.DeletedAt == null).ToList();
-                }
-
-                int totalCount = (int)Math.Ceiling((double)user.Count / pageSize);
-                List<User> pagedUsers = user.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-                userview.users = pagedUsers;
-                userview.PageCount = totalCount;
-                userview.PageSize = pageSize;
-                userview.CurrentPage = pageNumber;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
-            return userview;
-        }
         //public Userview ListUser(string search, int pageNumber, int pageSize)
         //{
-        //    var output = new SqlParameter("@rowCount", SqlDbType.BigInt) { Direction = ParameterDirection.Output };
-
-        //    List<UserAddview> test = _demotaskContext.Useradd.FromSqlInterpolated($"exec SPListUser @search={search},@pageNumber={pageNumber},@pageSize={pageSize},@rowCount={output} out").ToList();
         //    Userview userview = new Userview();
-        //    userview.users = test;
-        //    userview.PageCount = int.Parse(output.Value.ToString());
-        //    userview.PageSize = pageSize;
-        //    userview.CurrentPage = pageNumber;
-        //    return userview;
-        //}
-
-        //public IPagedList<User?> ListUser(string search, int? pageNumber, int pageSize)
-        //{
-        //    IPagedList<User?> pagedItems;
         //    try
         //    {
-
-        //        int pageNo = 1;
-
+        //        if (pageNumber == 0)
+        //        {
+        //            pageNumber = 1;
+        //        }
         //        if (pageSize == 0)
         //        {
         //            pageSize = 2;
         //        }
-        //        if (search != null)
-        //        {
-        //            List<User?> users = _demotaskContext.Users.Where(x => x.FirstName.ToLower().Contains(search.ToLower()) ||
-        //                x.LastName.ToLower().Contains(search.ToLower()) || x.Email.ToLower().Contains(search.ToLower()) && x.DeletedAt == null).ToList();
-        //            pagedItems = users.ToPagedList(pageNo, pageSize);
+                
+        //        List<User> user;
 
+        //        if (!string.IsNullOrEmpty(search))
+        //        {
+        //            user = _demotaskContext.Users.Where(x => x.FirstName.ToLower().Contains(search.ToLower()) ||
+        //                x.LastName.ToLower().Contains(search.ToLower()) || x.Email.ToLower().Contains(search.ToLower()) && x.DeletedAt == null).ToList();
         //        }
         //        else
         //        {
-        //            List<User?> users = _demotaskContext.Users.Where(x => x.DeletedAt == null).ToList();
-        //            pagedItems = users.ToPagedList(pageNo, pageSize);
+        //            user = _demotaskContext.Users.Where(x => x.DeletedAt == null).ToList();
         //        }
 
+        //        int totalCount = (int)Math.Ceiling((double)user.Count / pageSize);
+        //        List<User> pagedUsers = user.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        //        userview.users = pagedUsers;
+        //        userview.PageCount = totalCount;
+        //        userview.PageSize = pageSize;
+        //        userview.CurrentPage = pageNumber;
         //    }
         //    catch (Exception ex)
         //    {
         //        throw;
         //    }
 
-        //    return pagedItems;
+        //    return userview;
         //}
+
+        public Userview ListUser(string search, int pageNumber, int pageSize)
+
+        {
+            var output = new SqlParameter("@totalCount", SqlDbType.Int) { Direction = ParameterDirection.Output };
+
+            List<UserAddview> user = _demotaskContext.Useradd.FromSqlInterpolated($"exec SPListUser @search={search},@pageNumber={pageNumber},@pageSize={pageSize},@pageCount={output} out").ToList();
+
+
+            Userview userview = new Userview();
+            userview.users = user;
+            userview.PageCount = int.Parse(output.Value.ToString());
+            userview.PageSize = pageSize;
+            userview.CurrentPage = pageNumber;
+            return userview;
+        }
+
         public List<State> getState()
         {
             try

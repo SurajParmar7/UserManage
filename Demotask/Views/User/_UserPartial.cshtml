@@ -38,17 +38,12 @@
                 <th scope="col">Phone</th>
                 <th scope="col">Street Address</th>
                 <th scope="col">UserName</th>
-
-
-
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody class="table-border">
             @foreach (var item in Model.users)
             {
-
-
                 <tr>
                     <td>@item.FirstName</td>
                     <td>@item.LastName</td>
@@ -56,9 +51,6 @@
                     <td>@item.Phone</td>
                     <td>@item.StreetAddress</td>
                     <td>@item.Username</td>
-
-
-
                     <td>
                         <button data-bs-toggle="modal" onclick="editUser(@item.UserId)" data-bs-target="#editModal">
                             <i class="bi bi-pencil-square"></i>
@@ -70,22 +62,9 @@
                 </tr>
             }
 
-
-
         </tbody>
     </table>
 </div>
-@*<div class="pagination justify-content-center" style="gap:7px;">
-    @if (Model.PageCount != 1)
-    {
-        @for (int i = 1; i <= Model.PageCount; i++)
-        {
-            <button class="page-btn btnforpageAdmin" @if(Model.CurrentPage==i){
-    <text>disabled</text>
-}>@i</button>
-        }
-    }
-</div>*@
 
 
 <div class="pagination justify-content-center" style="gap: 7px;">
@@ -124,8 +103,6 @@
 </div>
 
 
-
-
 <div class="modal fade" id="deletemodel" tabindex="-1" aria-labelledby="deletemodelforskillLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -145,21 +122,7 @@
 </div>
 
 <script>
-    //$('.deleteuser').on("click", function (e) {
-    //        var userID = $(this).attr("value");
-    //        $.ajax({
-    //            url: '/User/Userdelete',
-    //            type: 'Post',
-    //            data: { UserId: userID},
-    //            success: function (data) {
-    //               userlist();
-    //            },
-    //            error: function (e) {
-    //                alert("error in DeleteRecord For User");
-    //            },
-    //        });
 
-    //    });
           $('.btnfordeleterecordgoal').on("click",function(){
           var userID = $(this).attr("value");
           $('.deleteuser').attr('value', userID);
@@ -208,7 +171,7 @@
                         currentPage = page;
                     },
                     error: function() {
-                        // Handle error
+                        
                     }
                 });
             }
@@ -229,7 +192,7 @@
                     currentPage = page;
                 },
                 error: function() {
-                    // Handle error
+                    
                 }
             });
         });

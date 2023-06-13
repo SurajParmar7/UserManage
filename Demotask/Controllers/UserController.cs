@@ -53,16 +53,11 @@ namespace Demotask.Controllers
             var emailExist = _userInterface.IsEmailAvailable(userAddview.Email);
             if (emailExist)
             {
-                //ModelState.AddModelError("email", "Email already exists");
-                //return View("UserAdd");
                 return Ok("email");
-
             }
             var usernameExist = _userInterface.IsUserNameAvailable(userAddview.Username);
             if (usernameExist)
             {
-                //ModelState.AddModelError("username", "Username already exists");
-                //return View("UserAdd");
                 return Ok("username");
             }
             else
@@ -92,13 +87,8 @@ namespace Demotask.Controllers
         public IActionResult UserEdit(UserAddview userAddview)
 
         {
-           
-               
-                _userInterface.UpdateUser(userAddview);
-
-            return Ok("edit");
-
-
+          _userInterface.UpdateUser(userAddview);
+           return Ok("edit");
         }
         public IActionResult Userdelete(long UserId)
         {

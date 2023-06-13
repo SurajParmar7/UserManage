@@ -13,8 +13,6 @@ namespace UserManage.repository.Interface
     {
 
         public Userview ListUser(string search, int pageNumber, int pageSize);
-       // public IPagedList<User?> ListUser(string search, int? pageNumber, int pageSize);
-
         public List<State> getState();
         public List<City> getCities(int stateId);
         public void InsertUser(User u);
