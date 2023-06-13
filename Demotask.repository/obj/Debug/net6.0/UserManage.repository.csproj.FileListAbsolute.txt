@@ -1,0 +1,17 @@
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\UserManage.repository.deps.json
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\UserManage.repository.runtimeconfig.json
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\UserManage.repository.dll
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\ref\UserManage.repository.dll
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\UserManage.repository.pdb
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\UserManage.entities.dll
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\UserManage.entities.pdb
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.csproj.AssemblyReference.cache
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.AssemblyInfoInputs.cache
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.AssemblyInfo.cs
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.csproj.CoreCompileInputs.cache
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.csproj.CopyComplete
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.dll
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\ref\UserManage.repository.dll
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.pdb
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\UserManage.repository.genruntimeconfig.cache

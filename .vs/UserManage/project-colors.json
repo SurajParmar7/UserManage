@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b669f445-7730-4330-82b0-27d852500df6": {
+      "ProjectGuid": "b669f445-7730-4330-82b0-27d852500df6",
+      "DisplayName": "UserManage",
+      "ColorIndex": 0
+    },
+    "bafe14cd-f564-479b-829c-57d00bd8b134": {
+      "ProjectGuid": "bafe14cd-f564-479b-829c-57d00bd8b134",
+      "DisplayName": "UserManage.entities",
+      "ColorIndex": 1
+    },
+    "171749bd-b43e-49f9-bdd2-97dd8ada8368": {
+      "ProjectGuid": "171749bd-b43e-49f9-bdd2-97dd8ada8368",
+      "DisplayName": "UserManage.repository",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

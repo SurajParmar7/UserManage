@@ -1,0 +1,14 @@
+D:\demo\Demotask\Demotask.entities\bin\Debug\net6.0\UserManage.entities.deps.json
+D:\demo\Demotask\Demotask.entities\bin\Debug\net6.0\UserManage.entities.runtimeconfig.json
+D:\demo\Demotask\Demotask.entities\bin\Debug\net6.0\UserManage.entities.dll
+D:\demo\Demotask\Demotask.entities\bin\Debug\net6.0\ref\UserManage.entities.dll
+D:\demo\Demotask\Demotask.entities\bin\Debug\net6.0\UserManage.entities.pdb
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\UserManage.entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\UserManage.entities.AssemblyInfoInputs.cache
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\UserManage.entities.AssemblyInfo.cs
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\UserManage.entities.csproj.CoreCompileInputs.cache
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\UserManage.entities.dll
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\ref\UserManage.entities.dll
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\UserManage.entities.pdb
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\UserManage.entities.genruntimeconfig.cache
+D:\demo\Demotask\Demotask.entities\obj\Debug\net6.0\UserManage.entities.csproj.AssemblyReference.cache

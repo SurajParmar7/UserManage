@@ -1,0 +1,17 @@
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\Demotask.repository.deps.json
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\Demotask.repository.runtimeconfig.json
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\Demotask.repository.dll
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\ref\Demotask.repository.dll
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\Demotask.repository.pdb
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\Demotask.entities.dll
+D:\demo\Demotask\Demotask.repository\bin\Debug\net6.0\Demotask.entities.pdb
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.csproj.AssemblyReference.cache
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.AssemblyInfoInputs.cache
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.AssemblyInfo.cs
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.csproj.CoreCompileInputs.cache
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.csproj.CopyComplete
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.dll
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\ref\Demotask.repository.dll
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.pdb
+D:\demo\Demotask\Demotask.repository\obj\Debug\net6.0\Demotask.repository.genruntimeconfig.cache

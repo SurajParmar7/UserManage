@@ -1,0 +1,124 @@
+﻿@model UserManage.entities.Viewmodels.UserAddview
+
+<form action="~/User/UserEdit" method="post" id="userform">
+
+    <div class="modal-body">
+        <div class="mb-3">
+
+
+            <div class="mb-3">
+                <input asp-for="@Model.UserId" type="hidden" class="form-control">
+                <label for="recipient-name" class="col-form-label">First Name:</label>
+                <input asp-for="@Model.FirstName" name="FirstName" type="text" class="form-control" id="aFirstName">
+                <p><span asp-validation-for="@Model.FirstName" class="text-danger"></span></p>
+
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Last Name:</label>
+                <input asp-for="@Model.LastName" name="LastName" type="text" class="form-control" id="aLastName">
+                <p><span asp-validation-for="LastName" class="text-danger"></span></p>
+
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Phone Number:</label>
+                <input asp-for="@Model.Phone" type="text" class="form-control" id="aPhoneNo">
+                <p><span asp-validation-for="Phone" class="text-danger"></span></p>
+
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Email Address:</label>
+                <input asp-for="@Model.Email" type="text" class="form-control" id="aEmail">
+                <p><span asp-validation-for="Email" class="text-danger"></span></p>
+
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Password:</label>
+                <input asp-for="@Model.Password" type="text" class="form-control" id="apassword">
+                <p><span asp-validation-for="Password" class="text-danger"></span></p>
+
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">StreetAddress:</label>
+                <input asp-for="@Model.StreetAddress" name="StreetAddress" type="text" class="form-control" >
+                <p><span asp-validation-for="StreetAddress" class="text-danger"></span></p>
+
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">UserName:</label>
+                <input asp-for="@Model.Username"  type="text" class="form-control" >
+                <p><span asp-validation-for="Username" class="text-danger"></span></p>
+
+            </div>
+
+            <div class="col">
+                <label for="recipient-name" class="col-form-label">State:</label>
+                <select asp-for="@Model.State" class="form-select" id="statedropdown" aria-label="default select example">
+                    <option selected>select your State</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="recipient-name" class="col-form-label">City</label>
+                <select asp-for="@Model.City" class="form-select" id="citydropdown" aria-label="default select example">
+                    <option selected>select your City</option>
+                </select>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button"><span >Close</span></button>
+        <button type="submit"><span >Save</span></button>
+    </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/User/listOfState',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                var stateDropdown = $('#statedropdown');
+                stateDropdown.empty();
+                stateDropdown.append($('<option>').text('Select your State').attr('value', ''));
+                $.each(data, function(index, state) {
+                    stateDropdown.append($('<option>').text(state.stateName).attr('value', state.stateId));
+                });
+
+                stateDropdown.val('@Model.State');
+                stateDropdown.change();
+            },
+            error: function() {
+                alert('Error occurred while retrieving states.');
+            }
+        });
+
+        $('#statedropdown').change(function() {
+            var stateId = $(this).val();
+
+            $.ajax({
+                url: '/User/GetCities',
+                type: 'GET',
+                data: { stateId: stateId },
+                success: function(cities) {
+                    var cityDropdown = $('#citydropdown');
+                    cityDropdown.empty();
+                    cityDropdown.append($('<option>').text('Select your City').attr('value', ''));
+                    $.each(cities, function(index, city) {
+                        cityDropdown.append($('<option>').text(city.cityName).attr('value', city.cityId));
+                    });
+
+                    cityDropdown.val('@Model.City');
+                },
+                error: function() {
+                    alert('Error occurred while retrieving cities.');
+                }
+            });
+        });
+    });
+</script>
