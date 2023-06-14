@@ -104,12 +104,34 @@ namespace UserManage.repository.Repository
             }
         }
 
+        //public void InsertUser(User u)
+        //{
+        //    try
+        //    {
+        //        _demotaskContext.Add(u);
+        //        _demotaskContext.SaveChanges();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+        //}
+
         public void InsertUser(User u)
         {
             try
             {
-                _demotaskContext.Add(u);
-                _demotaskContext.SaveChanges();
+                _demotaskContext.Database.ExecuteSqlInterpolated($@"EXEC SPInsertUser 
+                {u.FirstName},
+                {u.LastName},
+                {u.Email},
+                {u.Phone},
+                {u.StreetAddress},
+                {u.City},
+                {u.State},
+                {u.Username},
+                {u.Password};
+        ");
             }
             catch (Exception ex)
             {
@@ -138,43 +160,89 @@ namespace UserManage.repository.Repository
                 throw;
             }
         }
+        //public User GetDataEdit(int id)
+        //{
+        //    try
+        //    {
+
+        //        User u = _demotaskContext.Users.Where(x => x.UserId == id).FirstOrDefault();
+
+        //        return u;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+        //}
+
+
         public User GetDataEdit(int id)
         {
             try
             {
-               
-                User u = _demotaskContext.Users.Where(x => x.UserId == id).FirstOrDefault();
-               
-                return u;
+                var user = _demotaskContext.Users
+                    .FromSqlInterpolated($"EXEC SPGetDataEdit {id}")
+                    .AsEnumerable()
+                    .FirstOrDefault();
+
+                return user;
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+
+
+        //public void UpdateUser(UserAddview userAddview)
+        //{
+        //    try
+        //    {
+        //        User u = _demotaskContext.Users.Where(x => x.UserId == userAddview.UserId).FirstOrDefault();
+        //        u.FirstName = userAddview.FirstName;
+        //        u.LastName = userAddview.LastName;
+        //        u.Email = userAddview.Email;
+        //        u.Password = userAddview.Password;
+        //        u.Phone = userAddview.Phone;
+        //        u.State = userAddview.State;
+        //        u.City = userAddview.City;
+        //        u.StreetAddress = userAddview.StreetAddress;
+        //        u.Username = userAddview.Username;
+        //        _demotaskContext.Update(u);
+        //        _demotaskContext.SaveChanges();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+
+        //}
+
+
         public void UpdateUser(UserAddview userAddview)
         {
             try
             {
-                User u = _demotaskContext.Users.Where(x => x.UserId == userAddview.UserId).FirstOrDefault();
-                u.FirstName = userAddview.FirstName;
-                u.LastName = userAddview.LastName;
-                u.Email = userAddview.Email;
-                u.Password = userAddview.Password;
-                u.Phone = userAddview.Phone;
-                u.State = userAddview.State;
-                u.City = userAddview.City;
-                u.StreetAddress = userAddview.StreetAddress;
-                u.Username = userAddview.Username;
-                _demotaskContext.Update(u);
-                _demotaskContext.SaveChanges();
+                _demotaskContext.Database.ExecuteSqlInterpolated($@"
+            EXEC SPUpdateUser
+                {userAddview.UserId},
+                {userAddview.FirstName},
+                {userAddview.LastName},
+                {userAddview.Email},
+                {userAddview.Phone},
+                {userAddview.StreetAddress},
+                {userAddview.City},
+                {userAddview.State},
+                {userAddview.Username},
+                {userAddview.Password};
+        ");
             }
             catch (Exception ex)
             {
                 throw;
             }
-
         }
+
         public void DeletUser(long UserId)
         {
             try

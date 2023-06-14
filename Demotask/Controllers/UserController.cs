@@ -46,37 +46,79 @@ namespace Demotask.Controllers
 
             return Json(cities);
         }
+        //[HttpPost]
+        //public IActionResult UserAdd(UserAddview userAddview)
+
+        //{
+        //    var emailExist = _userInterface.IsEmailAvailable(userAddview.Email);
+        //    if (emailExist)
+        //    {
+        //        return Ok("email");
+        //    }
+        //    var usernameExist = _userInterface.IsUserNameAvailable(userAddview.Username);
+        //    if (usernameExist)
+        //    {
+        //        return Ok("username");
+        //    }
+        //    else
+        //    {
+        //        User u = new User();
+        //        u.FirstName = userAddview.FirstName;
+        //        u.LastName = userAddview.LastName;
+        //        u.Email = userAddview.Email;
+        //        u.Password = userAddview.Password;
+        //        u.Phone = userAddview.Phone;
+        //        u.State = userAddview.State;
+        //        u.City = userAddview.City;
+        //        u.StreetAddress = userAddview.StreetAddress;
+        //        u.Username = userAddview.Username;
+        //        _userInterface.InsertUser(u);
+        //        return Ok("add");
+        //    }
+
+        //}
         [HttpPost]
         public IActionResult UserAdd(UserAddview userAddview)
-
         {
-            var emailExist = _userInterface.IsEmailAvailable(userAddview.Email);
-            if (emailExist)
+            try
             {
-                return Ok("email");
-            }
-            var usernameExist = _userInterface.IsUserNameAvailable(userAddview.Username);
-            if (usernameExist)
-            {
-                return Ok("username");
-            }
-            else
-            {
-                User u = new User();
-                u.FirstName = userAddview.FirstName;
-                u.LastName = userAddview.LastName;
-                u.Email = userAddview.Email;
-                u.Password = userAddview.Password;
-                u.Phone = userAddview.Phone;
-                u.State = userAddview.State;
-                u.City = userAddview.City;
-                u.StreetAddress = userAddview.StreetAddress;
-                u.Username = userAddview.Username;
-                _userInterface.InsertUser(u);
-                return Ok("add");
-            }
+                var emailExist = _userInterface.IsEmailAvailable(userAddview.Email);
+                if (emailExist)
+                {
+                    return Ok("email");
+                }
 
+                var usernameExist = _userInterface.IsUserNameAvailable(userAddview.Username);
+                if (usernameExist)
+                {
+                    return Ok("username");
+                }
+                else
+                {
+                    {
+                        User u = new User();
+                        u.FirstName = userAddview.FirstName;
+                        u.LastName = userAddview.LastName;
+                        u.Email = userAddview.Email;
+                        u.Phone = userAddview.Phone;
+                        u.StreetAddress = userAddview.StreetAddress;
+                        u.City = userAddview.City;
+                        u.State = userAddview.State;
+                        u.Username = userAddview.Username;
+                        u.Password = userAddview.Password;
+                       _userInterface.InsertUser(u);
+                       return Ok("add");
+                    };
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing the request.");
+            }
         }
+
         public IActionResult UserEdit(int id)
         {
            
