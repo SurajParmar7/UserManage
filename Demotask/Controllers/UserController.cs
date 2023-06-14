@@ -23,9 +23,9 @@ namespace Demotask.Controllers
 
             return View();
         }
-        public IActionResult Userlisting(string search, int pageNumber, int pageSize)
+        public IActionResult Userlisting(string search, int pageNumber, int pageSize, string sort)
         {
-            var userList = _userInterface.ListUser(search, pageNumber, pageSize);
+            var userList = _userInterface.ListUser(search, pageNumber, pageSize, sort);
 
             return PartialView("_UserPartial", userList);
         }

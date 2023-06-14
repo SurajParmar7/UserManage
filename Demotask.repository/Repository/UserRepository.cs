@@ -61,10 +61,10 @@ namespace UserManage.repository.Repository
         //    return userview;
         //}
 
-        public Userview ListUser(string search, int pageNumber, int pageSize)
+        public Userview ListUser(string search, int pageNumber, int pageSize, string sort)
 
         {
-            var output = new SqlParameter("@totalCount", SqlDbType.Int) { Direction = ParameterDirection.Output };
+            var output = new SqlParameter("@pageCount", SqlDbType.Int) { Direction = ParameterDirection.Output };
 
             List<UserAddview> user = _demotaskContext.Useradd.FromSqlInterpolated($"exec SPListUser @search={search},@pageNumber={pageNumber},@pageSize={pageSize},@pageCount={output} out").ToList();
 
@@ -156,7 +156,6 @@ namespace UserManage.repository.Repository
         {
             try
             {
-
                 User u = _demotaskContext.Users.Where(x => x.UserId == userAddview.UserId).FirstOrDefault();
                 u.FirstName = userAddview.FirstName;
                 u.LastName = userAddview.LastName;

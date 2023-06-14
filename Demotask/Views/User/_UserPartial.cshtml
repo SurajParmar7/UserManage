@@ -24,8 +24,8 @@
 }
 <style>
     .active {
-        background-color: #f00; 
-        color: #fff; 
+        background-color: #f00;
+        color: #fff;
     }
 </style>
 <div style="overflow-x: auto;" class="table-responsive">
@@ -135,7 +135,6 @@
                 data: { UserId: userID},
                 success: function (data) {
                      toastr.success("User deleted successfully");
-              
                     userlist();
                 },
                 error: function (e) {
@@ -144,6 +143,24 @@
             });
 
         });
+            var sorting = "";
+            $("#sortid").on("click", function(){
+            sorting = $(this).val();
+            $.ajax({
+                type: "GET",
+                dataType: "html",
+                url: "/User/Userlisting",
+                data: { sort: sorting },
+                success: function (data) {
+                    $("#UserListing").html("");
+                    $("#UserListing").html(data);
+                },
+                error: function () {
+                    alert("Something went wrong in adding data");
+                }
+            });
+             
+            }); 
 
     $(function() {
         var currentPage = @Model.CurrentPage;
@@ -165,13 +182,13 @@
                     type: 'GET',
                     url: "/User/Userlisting",
                     dataType: 'html',
-                    data: { search: searchText, pageNumber: page, pageSize: pageSize },
+                    data: { search: searchText, pageNumber: page, pageSize: pageSize,sort: sorting },
                     success: function(data) {
                         $("#UserListing").html(data);
                         currentPage = page;
                     },
                     error: function() {
-                        
+
                     }
                 });
             }
@@ -186,13 +203,13 @@
                 type: 'GET',
                 url: "/User/Userlisting",
                 dataType: 'html',
-                data: { search: searchText, pageNumber: page, pageSize: pageSize },
+                data: { search: searchText, pageNumber: page, pageSize: pageSize,sort: sorting },
                 success: function(data) {
                     $("#UserListing").html(data);
                     currentPage = page;
                 },
                 error: function() {
-                    
+
                 }
             });
         });
@@ -202,10 +219,7 @@
 
 
 
-
-
-
-
-
-
 </script>
+
+
+

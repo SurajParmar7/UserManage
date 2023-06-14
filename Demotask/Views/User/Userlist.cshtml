@@ -12,10 +12,19 @@
             <option value="12">12</option>
         </select>
     </div>
+
     <div style="text-align: right;width: 7%">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="addUserbtn()" data-bs-target="#exampleModal">Add User </button>
     </div>
 </div>
+@*    <div >
+        <select id="sortid" class="form-select" aria-label="Default select example" >
+            <option selected>Sort By</option>
+            <option value="Username">Username</option>
+            <option value="">10</option>
+            <option value="">12</option>
+        </select>
+    </div>*@
 
 
 @*---- Add Model ---*@
@@ -180,6 +189,7 @@
             }
         });
 
+    
         function performSearch(searchUser) {
             $.ajax({
                 type: "GET",
